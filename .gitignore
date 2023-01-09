@@ -1,4 +1,4 @@
 # Here's where I'd ignore some files... IF I HAD ANY 
    
 # Ignore Python Virtual Environment
-    env/
+    /env/
