@@ -1,1 +1,2 @@
 # final-frontier
+Welcome to the Final Frontier project. This repository should house a few different projects related to Space.  I'll explore different APIs, gathering data using Python and JS, and eventually I'll work on building a complete front/back end that should house a dashboard with visualizations for interesting metrics or visualizations I discover
