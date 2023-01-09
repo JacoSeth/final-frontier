@@ -1,4 +1,4 @@
-#!/Users/sethjacobson/Desktop/final-frontier/env/bin/python3
+#!/Users/sethjacobson/Desktop/final-frontier/python-env/bin/python3.9
 # -*- coding: utf-8 -*-
 import re
 import sys
