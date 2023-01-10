@@ -21,6 +21,8 @@ def getSatInfo(satNumber):
 
     mydict.update(dict_entry)
 
+    return mydict
+
 
 # API call- return Sat Location
 def getSatLocation(satNumber):
