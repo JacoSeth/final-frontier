@@ -3,7 +3,7 @@
 import requests
 import json
 
-# Read Config Auth
+# Read auth from config file
 with open ('config.json', 'r') as config:
     configData = json.load(config)
 
