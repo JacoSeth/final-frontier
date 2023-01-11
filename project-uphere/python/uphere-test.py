@@ -35,7 +35,7 @@ def getSatLocation(satNumber):
 
     response = requests.request("GET", url, headers=headers, params=querystring)
 
-    # print(response.text)
+    print(response.text)
 
 # getSatInfo(43226)
-# getSatLocation(43226)
+getSatLocation(43226)
