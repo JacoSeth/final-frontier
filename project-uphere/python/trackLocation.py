@@ -8,7 +8,6 @@ def satTracker(satNumber):
         getSatLocation(x)
         time.sleep(30)
         i+=1
-    print('done')
+    # print('done')
 
 satTracker(43226)
-        
