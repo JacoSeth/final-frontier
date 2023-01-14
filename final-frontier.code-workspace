@@ -4,5 +4,9 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"css.format.enable": false,
+		"css.format.newlineBetweenRules": true,
+		"prettier.enable": false
+	}
 }
