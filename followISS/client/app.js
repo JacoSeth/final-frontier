@@ -22,9 +22,9 @@ function getLocationData() {
                 // }
                 // return dateConvert()
                 // Apply data dynamically to page
-            document.querySelector('.DateTime').insertAdjacentHTML("afterbegin", dateValue)
-            document.querySelector('.Latitude').insertAdjacentHTML("afterbegin", latValue)
-            document.querySelector('.Longitude').insertAdjacentHTML("afterbegin", lonValue)
+            document.querySelector('#DateTime').insertAdjacentHTML("afterbegin", dateValue)
+            document.querySelector('#Latitude').insertAdjacentHTML("afterbegin", latValue)
+            document.querySelector('#Longitude').insertAdjacentHTML("afterbegin", lonValue)
         })
         .catch(error => console.log(error))
 }

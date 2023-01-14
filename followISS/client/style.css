@@ -1,4 +1,4 @@
-#InfoTable {
+/* #InfoTable {
     margin: auto;
     width: 81%;
     border: 2px solid black;
@@ -7,19 +7,25 @@
     padding-right: 15px;
     padding-top: 10px;
     font-family: Arial, Helvetica, sans-serif;
-}
+} */
 
-.DateTime {
+
+/* #DateTime {
     text-align: center;
 }
 
-.Latitude {
+#Latitude {
     text-align: center;
 }
 
-.Longitude {
+#Longitude {
     text-align: center;
-}
+} */
+
+
+/* .w-75 p-3 {
+    margin: auto;
+} */
 
 #map {
     margin: auto;
@@ -32,4 +38,5 @@
 #header {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    padding-block: 10px;
 }
