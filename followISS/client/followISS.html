@@ -26,31 +26,47 @@
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <div id="header">
-        <h2>Follow the International Space Station</h2>
+
+    <!-- Card Element -->
+    <div style="padding-top: 10px;"></div>
+    <div class="card text-white bg-dark mb-3" style="width: 90%; margin: auto; padding-top: 10px;">
+        <div class="card-header">
+            <ul class="nav nav-pills card-header-pills" style="padding-left: 12px">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Active</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Disabled</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card text-white bg-dark mb-3">
+            <h2 class="card-title" style="padding-left:20px;">Follow the International Space Station</h2>
+            <div id="map" style="width:100%"></div>
+            <script src="map.js"></script>
+            <div class="w-100 p-3" style="margin: auto; width:100%">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="text-content">
+                            <th scope="col" style="text-align: left;">Date</th>
+                            <th scope="col">Latitude</th>
+                            <th scope="col">Longitude</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tableBody" style="font-weight: 600;">
+                            <td id="DateTime" class="text-content" style="text-align: left;"></td>
+                            <td id="Latitude" class="text-content" style="color: white;"></td>
+                            <td id="Longitude" class="text-content"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    <div id="map"></div>
-    <script src="map.js"></script>
-    <div style="padding-block: 10px;"></div>
-    <div class="w-85 p-3" style="margin: auto; width:80%; border: 2px solid black; border-radius: 7px;">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Date</th>
-                    <th scope="col">Latitude</th>
-                    <th scope="col">Longitude</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr style="font-weight: 600;">
-                    <td id="DateTime"></td>
-                    <td id="Latitude"></td>
-                    <td id="Longitude"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div style="padding-bottom: 10px"></div>
 
 
 

@@ -27,11 +27,15 @@
     margin: auto;
 } */
 
+body {
+    background-color: #303135;
+}
+
 #map {
     margin: auto;
     height: 550px;
     width: 80%;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 7px;
 }
 
@@ -39,4 +43,25 @@
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     padding-block: 10px;
+}
+
+.card-title {
+    text-align: left;
+}
+
+.tableHeader {
+    color: white;
+}
+
+
+/* .tableBody {
+    color: white;
+} */
+
+.text-content {
+    color: white;
+}
+
+.nav nav-pills card-header-pills {
+    padding-left: 12px;
 }
