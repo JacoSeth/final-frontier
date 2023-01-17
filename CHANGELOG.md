@@ -5,3 +5,5 @@
 4. 11/12/2023 implemented followISS api calls & webpage
 5. 11/13/2023 added leaflet.js map with OpenStreetMap, added credentials
 6. 11/14/2023 styled table with bootstrap.js
+7. 11/15/2023 contain map, table w/in bootstrap card
+8. 11/16/2023 style changes & investigate addt'l API sources
