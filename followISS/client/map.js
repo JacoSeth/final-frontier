@@ -38,7 +38,7 @@ var circle = L.circle([], {
     radius: 3218688
 })
 
-function placeISSMarker() {
+function queryISS() {
     fetch('http://api.open-notify.org/iss-now.json', options)
         .then(res => res.json())
         .then(data => {
@@ -63,26 +63,23 @@ function placeISSMarker() {
                 // Apply data dynamically to page, removing previously logged elements first
             var setCurrentInfo = function() {
                 // Define elements to be changed
-                dateParent = "#DateTime"
-                dateElement = document.querySelector(dateParent)
-                latParent = "#Latitude"
-                latElement = document.querySelector(latParent)
-                lonParent = "#Longitude"
-                lonElement = document.querySelector(lonParent)
+                dateElement = "#DateTime"
+                dateSelector = document.querySelector(dateElement)
+                latElement = "#Latitude"
+                latSelector = document.querySelector(latElement)
+                lonElement = "#Longitude"
+                lonSelector = document.querySelector(lonElement)
 
                 // Update defined Elements
-                dateElement.innerHTML = dateValue
-                latElement.innerHTML = latValue
-                lonElement.innerHTML = lonValue
+                dateSelector.innerHTML = dateValue
+                latSelector.innerHTML = latValue
+                lonSelector.innerHTML = lonValue
             }
             setCurrentInfo()
-                // document.querySelector('#DateTime').insertAdjacentHTML("afterbegin", dateValue)
-                // document.querySelector('#Latitude').insertAdjacentHTML("afterbegin", latValue)
-                // document.querySelector('#Longitude').insertAdjacentHTML("afterbegin", lonValue)
         })
         .catch(error => console.log(error))
-    setTimeout(placeISSMarker, 3000)
+    setTimeout(queryISS, 30000)
 
 }
 
-placeISSMarker()
+queryISS()
