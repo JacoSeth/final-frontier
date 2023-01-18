@@ -36,7 +36,7 @@ body {
     height: 550px;
     width: 80%;
     /* border: 2px solid black; */
-    border-radius: 7px;
+    border-radius: 0px;
 }
 
 #header {
