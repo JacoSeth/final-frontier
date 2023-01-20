@@ -3,10 +3,12 @@ const options = {
     method: 'GET'
 }
 
+const pathCoordinates = []
+
 
 
 // Initiate map
-var map = L.map("map")
+var map = L.map("map").setView([0.0, 0.0], 3)
 
 // Add Map Tile Layer
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -38,7 +40,13 @@ var circle = L.circle([], {
     radius: 3218688
 })
 
-function placeISSMarker() {
+var path = new L.polyline(pathCoordinates, {
+    color: 'red',
+    weight: 60
+})
+
+
+function queryISS() {
     fetch('http://api.open-notify.org/iss-now.json', options)
         .then(res => res.json())
         .then(data => {
@@ -52,7 +60,7 @@ function placeISSMarker() {
                 // Create the circle, place it on the map
             circle.setLatLng(newLatLng).addTo(map)
                 // Set the map to follow the latitude of the ISS (always horizontally centered on map)
-            map.setView([25.0, longitude], 1)
+                // map.setView([25.0, longitude], 1)
                 // Set the table elements to match the current coordinates
             const d = data.timestamp
                 // Account for miliseconds and convert to UTC
@@ -63,26 +71,47 @@ function placeISSMarker() {
                 // Apply data dynamically to page, removing previously logged elements first
             var setCurrentInfo = function() {
                 // Define elements to be changed
-                dateParent = "#DateTime"
-                dateElement = document.querySelector(dateParent)
-                latParent = "#Latitude"
-                latElement = document.querySelector(latParent)
-                lonParent = "#Longitude"
-                lonElement = document.querySelector(lonParent)
+                dateElement = "#DateTime"
+                dateSelector = document.querySelector(dateElement)
+                latElement = "#Latitude"
+                latSelector = document.querySelector(latElement)
+                lonElement = "#Longitude"
+                lonSelector = document.querySelector(lonElement)
 
                 // Update defined Elements
-                dateElement.innerHTML = dateValue
-                latElement.innerHTML = latValue
-                lonElement.innerHTML = lonValue
+                dateSelector.innerHTML = dateValue
+                latSelector.innerHTML = latValue
+                lonSelector.innerHTML = lonValue
+
+                // Make a marker for the popup describing elevation & coordinates
+                var mkrMsg = `beep boop`
+                marker.bindPopup(mkrMsg), {
+                        maxWidth: 2000,
+                        minWidth: 1000
+                    }
+                    // .openPopup();
+
+                var circleMsg = `approx view: 3,218,688m`
+                circle.bindPopup(circleMsg), {
+                        maxWidth: 2000,
+                        minWidth: 1000,
+                        offset: [10, 30]
+                    }
+                    // .openPopup();
             }
             setCurrentInfo()
-                // document.querySelector('#DateTime').insertAdjacentHTML("afterbegin", dateValue)
-                // document.querySelector('#Latitude').insertAdjacentHTML("afterbegin", latValue)
-                // document.querySelector('#Longitude').insertAdjacentHTML("afterbegin", lonValue)
+            var drawPath = function() {
+                var coordinateObj = [data.iss_position.latitude, data.iss_position.longitude]
+                pathCoordinates.push(coordinateObj)
+                console.log(pathCoordinates)
+                path.addTo(map)
+            }
+            drawPath()
         })
-        .catch(error => console.log(error))
-    setTimeout(placeISSMarker, 3000)
+
+    .catch(error => console.log(error))
+    setTimeout(queryISS, 3000)
 
 }
 
-placeISSMarker()
+queryISS()
