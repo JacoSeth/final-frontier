@@ -8,10 +8,22 @@ const pathCoordinates = []
 
 
 // Initiate map
-var map = L.map("map").setView([0.0, 0.0], 3)
+const map = L.map("map").setView([0.0, 0.0], 1)
+
+// Day/Night terminator package to add a polygon showing Earth's shadow over the map
+
+const earthShadow = L.terminator().addTo(map)
+
+setInterval(function() { updateTerminator(earthShadow) }, 1000)
+
+function updateTerminator(earthShadow) {
+    earthShadow.setTime()
+}
+
+
 
 // Add Map Tile Layer
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+const mapLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     minZoom: 2,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -19,7 +31,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // Add ISS Marker based on location data
 
-var iconISS = L.icon({
+const iconISS = L.icon({
     iconUrl: 'Icon-ISS.png',
     // shadowUrl: 'Icon-ISS.png',
     iconSize: [40, 40],
@@ -35,15 +47,12 @@ var marker = L.marker([], {
 var circle = L.circle([], {
     color: '#ffffff',
     colorOpacity: 0.3,
-    fillColor: '#f7f8fa',
-    fillOpacity: 0.15,
+    fillColor: '#241571',
+    fillOpacity: 0.1,
     radius: 3218688
 })
 
-var path = new L.polyline(pathCoordinates, {
-    color: 'red',
-    weight: 60
-})
+
 
 
 function queryISS() {
@@ -104,7 +113,20 @@ function queryISS() {
                 var coordinateObj = [data.iss_position.latitude, data.iss_position.longitude]
                 pathCoordinates.push(coordinateObj)
                 console.log(pathCoordinates)
-                path.addTo(map)
+                var polyline = new L.polyline(pathCoordinates, {
+                    color: '#ffffff',
+                    weight: 1
+                }).addTo(map)
+                if (pathCoordinates.length < 8) {
+                    // do nothing
+                } else {
+                    pathCoordinates.shift()
+                        // polyline = new L.polyline(pathCoordinates, {
+                        //     color: '#AA336A',
+                        //     weight: 3
+                        // }).addTo(map)
+                        // return pathCoordinates
+                }
             }
             drawPath()
         })
