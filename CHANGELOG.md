@@ -10,3 +10,4 @@
 9. 1/17/2023 update table to change automatically w/ current info (setCurrentInfo)
 10. 1/19/2023 Add .bindPopup()
 11. 1/20/2023 added terminator library to show polygon of earth's shadow, update set to 1000ms. Added polyline to show path of satellite, no success in removing old lines to create a trail
+1/22/2023 Redone tabs logic to support embed
