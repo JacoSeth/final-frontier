@@ -61,7 +61,7 @@ function queryISS() {
         .then(data => {
             latitude = data.iss_position.latitude
             longitude = data.iss_position.longitude
-            console.log(latitude, longitude)
+                // console.log(latitude, longitude)
                 // Create the marker, place it on the map
             var newLatLng = new L.LatLng(latitude, longitude)
                 // marker.addTo(map)
@@ -112,7 +112,7 @@ function queryISS() {
             var drawPath = function() {
                 var coordinateObj = [data.iss_position.latitude, data.iss_position.longitude]
                 pathCoordinates.push(coordinateObj)
-                console.log(pathCoordinates)
+                    // console.log(pathCoordinates)
                 var polyline = new L.polyline(pathCoordinates, {
                     color: '#ffffff',
                     weight: 1
