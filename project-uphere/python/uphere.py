@@ -38,4 +38,4 @@ def getSatLocation(satNumber):
     print(response.text)
 
 # getSatInfo(43226)
-# getSatLocation(43226)
+getSatLocation(43226)

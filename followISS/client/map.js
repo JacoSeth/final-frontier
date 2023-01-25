@@ -13,6 +13,7 @@ const map = L.map("map").setView([0.0, 0.0], 1)
 // Day/Night terminator package to add a polygon showing Earth's shadow over the map
 
 const earthShadow = L.terminator().addTo(map)
+earthShadow.bindPopup("Earth's Shadow")
 
 setInterval(function() { updateTerminator(earthShadow) }, 1000)
 
