@@ -35,7 +35,7 @@ const mapLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 const iconISS = L.icon({
     iconUrl: 'Icon-ISS.png',
     // shadowUrl: 'Icon-ISS.png',
-    iconSize: [40, 40],
+    iconSize: [30, 30],
     // shadowSize: [55, 55],
     // shadowAnchor: [0, 0],
     // shadowOpacity: 0.1
